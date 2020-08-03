@@ -1,0 +1,27 @@
+<%= form_with(model: login, local: true) do |form| %>
+  <% if login.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(login.errors.count, "error") %> prohibited this login from being saved:</h2>
+
+      <ul>
+        <% login.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :user %>
+    <%= form.text_field :user, class:"form-control",placeholder:"User"   %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password ,class:"form-control",placeholder:"Password"%>
+  </div>
+
+  <div class="btn btn-outline-primary">
+    <%= form.button %>
+  </div>
+<% end %>
